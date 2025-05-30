@@ -20,18 +20,17 @@
       margin: 20px 0;
     }
 
-    /* Pulse animation */
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
 
-    /* ကြေငြာပုံ */
     .banner {
       margin-top: 30px;
       animation: pulse 1.8s infinite;
     }
+
     .banner img {
       width: 100%;
       max-width: 500px;
@@ -40,7 +39,6 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
-    /* Telegram Button */
     .telegram-link {
       display: inline-block;
       margin-top: 25px;
@@ -61,21 +59,40 @@
   <h1>🎬 ဇာတ်ကားကြည့်ရန် ၃၀ စက္ကန့်စောင့်ပါ</h1>
   <div class="countdown" id="countdown">30</div>
 
-  <!-- ကြေငြာပုံ -->
   <div class="banner">
     <img src="https://i.ibb.co/390mxxzY/22222.jpg" alt="ကြေငြာ">
   </div>
 
-  <!-- Telegram Button -->
-  <a href="http://t.me/gb168vip2" class="telegram-link" target="_blank" rel="noopener noreferrer">
+  <a href="https://t.me/gb168vip2" class="telegram-link" target="_blank" rel="noopener noreferrer">
     အကောင့်ဖွင့်ရန် နှိပ်ပါ Telegram
   </a>
 
   <script>
+    // Countdown Settings
     let timeLeft = 30;
     const countdown = document.getElementById("countdown");
-    const targetURL = "https://t.me/g1movieschannel/434"; // Video link
+    const targetURL = "https://t.me/g1movieschannel/434"; // Redirect to this link
 
+    // ✅ Log to Google Sheets
+    const logURL = "https://script.google.com/macros/s/AKfycbwGW2WHME1I8WeM5agwaUxblWbkY89BNFcgpmZYTfvMVSPMA7pKuea6vAyFIgchVTu2DQ/exec";
+
+    // Send data to Google Sheets
+    fetch(logURL, {
+      method: "POST",
+      body: JSON.stringify({
+        userAgent: navigator.userAgent,
+        referrer: document.referrer
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(() => {
+      console.log("✅ Logged to Google Sheet");
+    }).catch(err => {
+      console.error("❌ Logging error:", err);
+    });
+
+    // Countdown & Redirect
     const interval = setInterval(() => {
       timeLeft--;
       countdown.innerText = timeLeft;
@@ -89,5 +106,6 @@
 
 </body>
 </html>
+
 
 
