@@ -2,55 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Countdown Redirect</title>
+  <title>Redirecting...</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 30px 10px;
-      background-color: #f4f4f4;
-    }
-    h1 {
-      color: #333;
-      font-size: 24px;
+      padding: 30px;
     }
     .countdown {
-      font-size: 48px;
+      font-size: 40px;
       color: red;
       margin: 20px 0;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    .banner {
-      margin-top: 30px;
-      animation: pulse 1.8s infinite;
-    }
-
-    .banner img {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .telegram-link {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 20px 40px;
-      background-color: #0088cc;
-      color: white;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 22px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      animation: pulse 1.5s infinite;
     }
   </style>
 </head>
@@ -59,24 +21,11 @@
   <h1>🎬 ဇာတ်ကားကြည့်ရန် ၃၀ စက္ကန့်စောင့်ပါ</h1>
   <div class="countdown" id="countdown">30</div>
 
-  <div class="banner">
-    <img src="https://i.ibb.co/390mxxzY/22222.jpg" alt="ကြေငြာ">
-  </div>
-
-  <a href="https://t.me/gb168vip2" class="telegram-link" target="_blank" rel="noopener noreferrer">
-    အကောင့်ဖွင့်ရန် နှိပ်ပါ Telegram
-  </a>
-
   <script>
-    // Countdown Settings
-    let timeLeft = 30;
-    const countdown = document.getElementById("countdown");
-    const targetURL = "https://t.me/g1movieschannel/434"; // Redirect to this link
+    const telegramURL = "https://t.me/gb168vip2"; // Redirect URL
+    const logURL = "https://script.google.com/macros/s/AKfycbwGW2WHME1I8WeM5agwaUxblWbkY89BNFcgpmZYTfvMVSPMA7pKuea6vAyFIgchVTu2DQ/exec"; // Your Apps Script URL
 
-    // ✅ Log to Google Sheets
-    const logURL = "https://script.google.com/macros/s/AKfycbwGW2WHME1I8WeM5agwaUxblWbkY89BNFcgpmZYTfvMVSPMA7pKuea6vAyFIgchVTu2DQ/exec";
-
-    // Send data to Google Sheets
+    // Log to Google Sheets
     fetch(logURL, {
       method: "POST",
       body: JSON.stringify({
@@ -87,25 +36,29 @@
         "Content-Type": "application/json"
       }
     }).then(() => {
-      console.log("✅ Logged to Google Sheet");
+      console.log("Logged to Google Sheets");
     }).catch(err => {
-      console.error("❌ Logging error:", err);
+      console.error("Logging failed:", err);
     });
 
-    // Countdown & Redirect
+    // Countdown Redirect
+    let timeLeft = 30;
+    const countdown = document.getElementById("countdown");
+
     const interval = setInterval(() => {
       timeLeft--;
-      countdown.innerText = timeLeft;
+      countdown.textContent = timeLeft;
 
       if (timeLeft <= 0) {
         clearInterval(interval);
-        window.location.href = targetURL;
+        window.location.href = telegramURL;
       }
     }, 1000);
   </script>
 
 </body>
 </html>
+
 
 
 
