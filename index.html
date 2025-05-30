@@ -7,36 +7,52 @@
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding-top: 50px;
+      padding: 30px 10px;
       background-color: #f4f4f4;
     }
     h1 {
       color: #333;
+      font-size: 24px;
     }
     .countdown {
-      font-size: 40px;
+      font-size: 48px;
       color: red;
       margin: 20px 0;
     }
+
+    /* Pulse animation */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* ကြေငြာပုံ */
     .banner {
       margin-top: 30px;
-      max-width: 90%;
+      animation: pulse 1.8s infinite;
     }
     .banner img {
-      max-width: 100%;
+      width: 100%;
+      max-width: 500px;
       height: auto;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
+
+    /* Telegram Button */
     .telegram-link {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
+      margin-top: 25px;
+      padding: 20px 40px;
       background-color: #0088cc;
       color: white;
-      border-radius: 8px;
+      border-radius: 14px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 22px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      animation: pulse 1.5s infinite;
     }
   </style>
 </head>
@@ -45,20 +61,20 @@
   <h1>🎬 ဇာတ်ကားကြည့်ရန် ၃၀ စက္ကန့်စောင့်ပါ</h1>
   <div class="countdown" id="countdown">30</div>
 
-  <!-- ကိုယ်ပိုင်ကြေငြာဓာတ်ပုံ -->
+  <!-- ကြေငြာပုံ -->
   <div class="banner">
     <img src="https://i.ibb.co/390mxxzY/22222.jpg" alt="ကြေငြာ">
   </div>
 
-  <!-- ကိုယ်ပိုင်တယ်လီဂရမ်လင့် -->
+  <!-- Telegram Button -->
   <a href="http://t.me/gb168vip2" class="telegram-link" target="_blank" rel="noopener noreferrer">
-    ဆက်သွယ်ရန် Telegram
+    အကောင့်ဖွင့်ရန် နှိပ်ပါ Telegram
   </a>
 
   <script>
     let timeLeft = 30;
     const countdown = document.getElementById("countdown");
-    const targetURL = "https://t.me/g1movieschannel/434";  // ဗီဒီယိုလင့်
+    const targetURL = "https://t.me/g1movieschannel/434"; // Video link
 
     const interval = setInterval(() => {
       timeLeft--;
@@ -73,4 +89,5 @@
 
 </body>
 </html>
+
 
