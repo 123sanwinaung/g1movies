@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Countdown Redirect</title>
   <style>
     body {
@@ -64,13 +64,14 @@
   </a>
 
   <script>
-    let timeLeft = 30;
     const countdown = document.getElementById("countdown");
-    const targetURL = "https://t.me/g1movieschannel/434"; // ⏩ Redirect link
+    let timeLeft = 30;
+    const targetURL = "https://t.me/g1movieschannel/434";
 
-    // ✅ Send log to Google Sheets
+    // ✅ Google Apps Script Web App URL (CHANGE if needed)
     const logURL = "https://script.google.com/macros/s/AKfycbwGW2WHME1I8WeM5agwaUxblWbkY89BNFcgpmZYTfvMVSPMA7pKuea6vAyFIgchVTu2DQ/exec";
 
+    // Send log to Google Sheet
     fetch(logURL, {
       method: "POST",
       body: JSON.stringify({
@@ -80,12 +81,15 @@
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(() => {
-      console.log("✅ Logged to Google Sheet");
-    }).catch(err => {
-      console.error("❌ Logging error:", err);
+    })
+    .then(() => {
+      console.log("✅ Log sent to Google Sheet");
+    })
+    .catch((error) => {
+      console.error("❌ Logging error:", error);
     });
 
+    // Countdown and Redirect
     const interval = setInterval(() => {
       timeLeft--;
       countdown.innerText = timeLeft;
@@ -98,6 +102,7 @@
 
 </body>
 </html>
+
 
 
 
