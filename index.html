@@ -51,12 +51,11 @@
   </style>
 </head>
 <body>
-
   <h1>🎬 ဇာတ်ကားကြည့်ရန် ၃၀ စက္ကန့်စောင့်ပါ</h1>
   <div class="countdown" id="countdown">30</div>
 
   <div class="banner">
-    <img src="https://i.ibb.co/390mxxzY/22222.jpg" alt="ကြေငြာ">
+    <img src="https://i.ibb.co/390mxxzY/22222.jpg" alt="ကြေငြာ" />
   </div>
 
   <a href="https://t.me/gb168vip2" class="telegram-link" target="_blank" rel="noopener noreferrer">
@@ -64,32 +63,28 @@
   </a>
 
   <script>
-    const countdown = document.getElementById("countdown");
     let timeLeft = 30;
-    const targetURL = "https://t.me/g1movieschannel/434";
+    const countdown = document.getElementById("countdown");
+    const targetURL = "https://t.me/g1movieschannel/434"; // Redirect link
 
-    // ✅ Google Apps Script Web App URL (CHANGE if needed)
-    const logURL = "https://script.google.com/macros/s/AKfycbwGW2WHME1I8WeM5agwaUxblWbkY89BNFcgpmZYTfvMVSPMA7pKuea6vAyFIgchVTu2DQ/exec";
+    const logURL = "https://script.google.com/macros/s/AKfycbyKeuBIsarJrY_-bKvXn_DWltatmBNC74mm8lSjPYII74dzZkm9POiIZJTMQAH106SymQ/exec";
 
-    // Send log to Google Sheet
+    // Send log data to Google Sheets via Google Apps Script
     fetch(logURL, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         userAgent: navigator.userAgent,
         referrer: document.referrer
-      }),
-      headers: {
-        "Content-Type": "application/json"
-      }
+      })
     })
-    .then(() => {
-      console.log("✅ Log sent to Google Sheet");
-    })
-    .catch((error) => {
-      console.error("❌ Logging error:", error);
-    });
+    .then(response => response.json())
+    .then(data => console.log("✅ Logged to Google Sheet:", data))
+    .catch(error => console.error("❌ Logging error:", error));
 
-    // Countdown and Redirect
+    // Countdown timer & redirect
     const interval = setInterval(() => {
       timeLeft--;
       countdown.innerText = timeLeft;
@@ -99,9 +94,9 @@
       }
     }, 1000);
   </script>
-
 </body>
 </html>
+
 
 
 
