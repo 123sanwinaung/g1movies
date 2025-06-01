@@ -1,41 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Countdown Redirect</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px 10px;
-      background-color: #f4f4f4;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
-    h1 {
-      color: #333;
-      font-size: 24px;
-    }
-    .countdown {
-      font-size: 48px;
-      color: red;
-      margin: 20px 0;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    .banner {
-      margin-top: 30px;
-      animation: pulse 1.8s infinite;
-    }
-    .banner img {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    .telegram-link {
+    .link-button {
       display: inline-block;
       margin-top: 25px;
       padding: 20px 40px;
@@ -45,8 +10,12 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 22px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       animation: pulse 1.5s infinite;
+      margin-right: 10px;
+    }
+    .viber-link {
+      background-color: #665cac;
     }
   </style>
 </head>
@@ -58,8 +27,12 @@
     <img src="https://i.ibb.co/390mxxzY/22222.jpg" alt="ကြေငြာ" />
   </div>
 
-  <a href="https://bit.ly/3MBLXhT" class="telegram-link" target="_blank" rel="noopener noreferrer">
-    အကောင့်ဖွင့်ရန် နှိပ်ပါ Telegram
+  <a href="https://bit.ly/3MBLXhT" class="link-button" target="_blank" rel="noopener noreferrer">
+    အကောင့်ဖွင့်ရန် Telegram ကိုနှိပ်ပါ
+  </a>
+
+  <a href="https://msng.link/o?959893519099=vi" class="link-button viber-link" target="_blank" rel="noopener noreferrer">
+    အကောင့်ဖွင့်ရန် Viber ကိုနှိပ်ပါ
   </a>
 
   <script>
@@ -67,24 +40,6 @@
     const countdown = document.getElementById("countdown");
     const targetURL = "https://t.me/g1movieschannel/465"; // Redirect link
 
-    const logURL = "https://script.google.com/macros/s/AKfycbxa5nGR3k3S_qTu89o98Ua6QTD3oWBCyTWFXFOqEV3ZS-B5Hyrbo15VY1Q10XYULUgm2w/exec";
-
-    // Send log data to Google Sheets via Google Apps Script
-    fetch(logURL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        userAgent: navigator.userAgent,
-        referrer: document.referrer
-      })
-    })
-    .then(response => response.json())
-    .then(data => console.log("✅ Logged to Google Sheet:", data))
-    .catch(error => console.error("❌ Logging error:", error));
-
-    // Countdown timer & redirect
     const interval = setInterval(() => {
       timeLeft--;
       countdown.innerText = timeLeft;
