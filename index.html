@@ -1,8 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Countdown Redirect</title>
+
+  <!-- ✅ Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src='https://connect.facebook.net/en_US/fbevents.js';
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script');
+    fbq('init', '680349018216029'); // 👉 သင့် Pixel ID
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1"
+    src="https://www.facebook.com/tr?id=680349018216029&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- ✅ End Facebook Pixel Code -->
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -59,39 +77,6 @@
     }
   </style>
 </head>
-<body>
-  <h1>🎬 ဇာတ်ကားကြည့်ရန် ၃၀ စက္ကန့်စောင့်ပါ</h1>
-  <div class="countdown" id="countdown">30</div>
-
-  <div class="banner">
-    <img src="https://i.ibb.co/390mxxzY/22222.jpg" alt="ကြေငြာ" />
-  </div>
-
-  <a href="https://bit.ly/3MBLXhT" class="link-button" target="_blank" rel="noopener noreferrer">
-    အကောင့်ဖွင့်ရန် Telegram ကိုနှိပ်ပါ
-  </a>
-
-  <a href="https://msng.link/o?959893519099=vi" class="link-button viber-link" target="_blank" rel="noopener noreferrer">
-    အကောင့်ဖွင့်ရန် Viber ကိုနှိပ်ပါ
-  </a>
-
-  <script>
-    let timeLeft = 30;
-    const countdown = document.getElementById("countdown");
-    const targetURL = "https://t.me/g1movieschannel/481"; // Redirect link
-
-    const interval = setInterval(() => {
-      timeLeft--;
-      countdown.innerText = timeLeft;
-      if (timeLeft <= 0) {
-        clearInterval(interval);
-        window.location.href = targetURL;
-      }
-    }, 1000);
-  </script>
-</body>
-</html>
-
 
 
 
