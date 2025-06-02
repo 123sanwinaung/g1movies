@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Countdown Redirect</title>
@@ -12,7 +14,7 @@
     t.src='https://connect.facebook.net/en_US/fbevents.js';
     s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script');
-    fbq('init', '680349018216029'); // 👉 သင့် Pixel ID
+    fbq('init', '680349018216029');
     fbq('track', 'PageView');
   </script>
   <noscript>
@@ -77,10 +79,37 @@
     }
   </style>
 </head>
+<body>
+  <h1>🎬 ဇာတ်ကားကြည့်ရန် ၃၀ စက္ကန့်စောင့်ပါ</h1>
+  <div class="countdown" id="countdown">30</div>
 
+  <div class="banner">
+    <img src="https://i.ibb.co/390mxxzY/22222.jpg" alt="ကြေငြာ" />
+  </div>
 
+  <a href="https://bit.ly/3MBLXhT" class="link-button" target="_blank" rel="noopener noreferrer">
+    အကောင့်ဖွင့်ရန် Telegram ကိုနှိပ်ပါ
+  </a>
 
+  <a href="https://msng.link/o?959893519099=vi" class="link-button viber-link" target="_blank" rel="noopener noreferrer">
+    အကောင့်ဖွင့်ရန် Viber ကိုနှိပ်ပါ
+  </a>
 
+  <script>
+    let timeLeft = 30;
+    const countdown = document.getElementById("countdown");
+    const targetURL = "https://t.me/g1movieschannel/481"; // Redirect link
 
+    const interval = setInterval(() => {
+      timeLeft--;
+      countdown.innerText = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        window.location.href = targetURL;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
 
 
